@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./assets/css/style.css">
+        <title>Desafio 15 To do List</title>
+    </head>
+
+    <body>
+        <div class="app-toDoList">
+            <h1>
+                To do List
+            </h1>
+            <hr>
+            <div class="containerInput">
+                <p>Nueva tarea</p>
+                <input
+                    id="new-task"
+                    name="new-task"
+                    type="text"
+                    required
+                    placeholder="Escribe un nueva tarea">
+                <button>Agregar</button>
+            </div>
+            <div class="added-tasks">
+                <div class="completed-tasks">
+                    <p id="total-tasks">Total: <strong>0</strong></p>
+                    <p id="comple-tasks">Realizadas <strong>0</strong></p>
+                </div>
+                <div id="tasks-list">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><strong>ID</strong></th>
+                                <th><strong>Tarea</strong></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="./assets/js/main.js"></script>
+    </body>
+
+</html>
