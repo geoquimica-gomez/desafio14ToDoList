@@ -28,7 +28,7 @@ input {
     cursor: pointer;
 }
 
-button:hover {
+.containerInput button:hover {
     background-color: aquamarine;
     color: black;
 }
