@@ -14,7 +14,7 @@ function renderTasks(tasks) {
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${task.id}</td>
-            <td>${task.nameTask}</td>
+            <td class="${task.completed ? 'completed' : ''}">${task.nameTask}</td>
             <td><input type="checkbox" ${task.completed ? 'checked' : ''}></td>
             <td><button class="delete-btn"><i class="fa-solid fa-trash"></i></button></td>
         `;
@@ -22,7 +22,8 @@ function renderTasks(tasks) {
         const checkbox = row.querySelector('input[type="checkbox"]');
         checkbox.addEventListener('change', () => {
             task.completed = checkbox.checked;
-            completedTasks();
+            renderTasks(tasks);
+            updateTaskCounters();
         });
 
         const deleteBtn = row.querySelector('.delete-btn');
@@ -30,7 +31,6 @@ function renderTasks(tasks) {
             tasks.splice(tasks.indexOf(task), 1);
             renderTasks(tasks);
             updateTaskCounters();
-            completedTasks();
         });
 
         tbody.appendChild(row);
@@ -38,18 +38,14 @@ function renderTasks(tasks) {
 }
 
 function updateTaskCounters() {
+    const completedTasks = tasks.filter(task => task.completed).length;
     const totalTasks = tasks.length;
     document.getElementById("total-tasks").innerHTML = `Total: <strong>${totalTasks}</strong>`;
-}
-
-function completedTasks() {
-    const completedTasks = tasks.filter(task => task.completed).length;
     document.getElementById('comple-tasks').innerHTML = `Realizadas: <strong>${completedTasks}</strong>`;
 }
 
 renderTasks(tasks);
 updateTaskCounters();
-completedTasks();
 
 btn.addEventListener("click", () => {
     const newTask = input.value;
@@ -63,6 +59,5 @@ btn.addEventListener("click", () => {
         input.value = "";
         renderTasks(tasks);
         updateTaskCounters();
-        completedTasks();
     }
 });

@@ -38,3 +38,25 @@ input {
     display: flex;
     justify-content: space-between;
 }
+
+.completed {
+    color: green;
+    text-decoration: line-through;
+}
+
+.fa-solid {
+    color: red;
+}
+
+.delete-btn {
+    border: none;
+    cursor: pointer;
+}
+
+.fa-solid:hover {
+    color: brown;
+}
+
+input[type="checkbox"] {
+    cursor: pointer;
+}
